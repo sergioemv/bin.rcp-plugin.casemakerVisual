@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+/**
+ * <copyright>
+ Business Innovations
+ * </copyright>
+ *
+ * $Id: plugin.xml,v 1.12 2005/08/27 15:09:22 smoreno Exp $
+ */
+-->
+
+<plugin
+    name = "%pluginName"
+    id = "biz.bi.casemaker.core"
+    version = "1.0.0"
+    provider-name = "%providerName"
+    class = "biz.bi.cmcore.CMCorePlugin$Implementation">
+
+  <requires>
+    <import plugin="org.eclipse.core.runtime" />
+    <import plugin="org.eclipse.emf.ecore" export="true"/>
+    <import plugin="org.eclipse.emf.edit" export="true"/>
+    <import plugin="org.eclipse.gef"/>
+  </requires>
+
+  <runtime>
+    <library name="runtime/biz.bi.casemaker.core.jar">
+      <export name="*"/>
+    </library>
+    <library name="lib/casemaker.jar">
+       <export name="*"/>
+    </library>
+    <library name="lib/JSX2.1.jar">
+       <export name="*"/>
+    </library>
+  </runtime>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http://biz.bi.casemaker"
+       class = "biz.bi.cmcore.model.CasemakerCore.CMCorePackage" />
+  </extension>
+
+</plugin>
+

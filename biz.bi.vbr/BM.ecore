@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="vbr"
+    nsURI="http://biz.bi.vbr" nsPrefix="vbr">
+  <eClassifiers xsi:type="ecore:EClass" name="FormalPolicy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fpDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_BusinessObject" lowerBound="1"
+        upperBound="-1" eType="#//BusinessObject" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_BusinessAction" lowerBound="1"
+        upperBound="-1" eType="#//BusinessAction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="boDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_BusinessValue" lowerBound="1"
+        upperBound="-1" eType="#//BusinessValue" containment="true" eOpposite="#//BusinessValue/m_BusinessObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_FromalPolicy" lowerBound="1"
+        eType="#//FormalPolicy" eOpposite="#//FormalPolicy/m_BusinessObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="botimeStamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessValue" eSuperTypes="#//AbstractInferenceRuleContents">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bvState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bvRisk" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_BusinessObject" lowerBound="1"
+        eType="#//BusinessObject" eOpposite="#//BusinessObject/m_BusinessValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_InferenceRule" lowerBound="1"
+        upperBound="-1" eType="#//InferenceRule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessAction" eSuperTypes="#//AbstractInferenceRuleContents">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_besidebv" lowerBound="1"
+        upperBound="-1" eType="#//BusinessValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InferenceRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TruePart" eType="#//AbstractInferenceRuleContents"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FalsePart" eType="#//AbstractInferenceRuleContents"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractInferenceRuleContents" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeStamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eSubpackages name="vbrvm" nsURI="http://biz.bi.vbr.vm" nsPrefix="VBRVM">
+    <eClassifiers xsi:type="ecore:EClass" name="MainDiagram">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_TreeView" upperBound="-1"
+          eType="#//vbrvm/VBRTreeView" containment="true" eOpposite="#//vbrvm/VBRTreeView/mainDiagram"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_vbrObject" lowerBound="1"
+          eType="#//vbrvm/BMFormalPolicy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRElementView" upperBound="-1"
+          eType="#//vbrvm/VBRElementView" containment="true" eOpposite="#//vbrvm/VBRElementView/m_MainDiagram"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRElementValueView"
+          upperBound="-1" eType="#//vbrvm/VBRElementValueView" containment="true"
+          eOpposite="#//vbrvm/VBRElementValueView/m_MainDiagram"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRActionView" upperBound="-1"
+          eType="#//vbrvm/VBRActionView" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractView" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="X" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Heigth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VBRTreeView" eSuperTypes="#//vbrvm/AbstractView">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mainDiagram" lowerBound="1"
+          eType="#//vbrvm/MainDiagram" eOpposite="#//vbrvm/MainDiagram/m_TreeView"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRTreeConnectElementValue"
+          lowerBound="1" eType="#//vbrvm/VBRTreeConnectElementValue"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VBRElementView" eSuperTypes="#//vbrvm/AbstractView">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_MainDiagram" lowerBound="1"
+          eType="#//vbrvm/MainDiagram" eOpposite="#//vbrvm/MainDiagram/m_VBRElementView"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_BObjectM" lowerBound="1"
+          eType="#//vbrvm/BMBusinessObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRElementConnectElementValue"
+          lowerBound="1" eType="#//vbrvm/VBRElementConnectElementValue"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_ElementValue" lowerBound="1"
+          upperBound="-1" eType="#//vbrvm/VBRElementValueView"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VBRElementValueView" eSuperTypes="#//vbrvm/AbstractView">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_MainDiagram" lowerBound="1"
+          eType="#//vbrvm/MainDiagram" eOpposite="#//vbrvm/MainDiagram/m_VBRElementValueView"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRElementValueConnectAction"
+          lowerBound="1" upperBound="-1" eType="#//vbrvm/VBRElementValueConnectAction"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="eColor" eType="#//vbrvm/Color"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_bvaluem" lowerBound="1"
+          eType="#//vbrvm/BMBusinessValue"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRElementValueConnectElementValue"
+          lowerBound="1" upperBound="-1" eType="#//vbrvm/VBRElementValueConnectElementValue"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_ElementView" lowerBound="1"
+          eType="#//vbrvm/VBRElementView"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VBRActionView" eSuperTypes="#//vbrvm/AbstractView">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//vbrvm/Color"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_BActionm" lowerBound="1"
+          eType="#//vbrvm/BMBusinessAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRActionConnectElementValue"
+          lowerBound="1" eType="#//vbrvm/VBRActionConnectElementValue"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="m_MainDiagram" lowerBound="1"
+          eType="#//vbrvm/MainDiagram"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractLine" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VBRTreeConnectElementValue" eSuperTypes="#//vbrvm/AbstractLine">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SourceTr" lowerBound="1"
+          eType="#//vbrvm/VBRTreeView"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TargetEV" lowerBound="1"
+          eType="#//vbrvm/VBRElementValueView"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VBRElementConnectElementValue" eSuperTypes="#//vbrvm/AbstractLine">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ESource" lowerBound="1"
+          eType="#//vbrvm/VBRElementView"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EVTarget" lowerBound="1"
+          eType="#//vbrvm/VBRElementValueView"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VBRElementValueConnectElementValue"
+        eSuperTypes="#//vbrvm/AbstractLine">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EVSource" lowerBound="1"
+          eType="#//vbrvm/VBRElementValueView"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EVTarget" lowerBound="1"
+          eType="#//vbrvm/VBRElementValueView"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VBRElementValueConnectAction" eSuperTypes="#//vbrvm/AbstractLine">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SourceE" lowerBound="1"
+          eType="#//vbrvm/VBRElementValueView"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TargetACT" lowerBound="1"
+          eType="#//vbrvm/VBRActionView"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VBRActionConnectElementValue" eSuperTypes="#//vbrvm/AbstractLine">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SourceACT" lowerBound="1"
+          eType="#//vbrvm/VBRActionView"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TargetEV" lowerBound="1"
+          eType="#//vbrvm/VBRElementValueView"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceClassName="org.eclipse.swt.graphics.Color"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="BMBusinessObject" instanceClassName="biz.bi.vbr.BusinessObject"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="BMBusinessValue" instanceClassName="biz.bi.vbr.BusinessValue"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="BMBusinessAction" instanceClassName="biz.bi.vbr.BusinessAction"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="BMFormalPolicy" instanceClassName="biz.bi.vbr.FormalPolicy"/>
+  </eSubpackages>
+</ecore:EPackage>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Business Innovations"
+    modelDirectory="/biz.bi.vtcd/src" editDirectory="/biz.bi.vtcd/src" editorDirectory="/biz.bi.vtcd/src"
+    modelPluginID="biz.bi.vtcd" runtimeJar="true" forceOverwrite="true" modelName="Vtcd"
+    editPluginClass="biz.bi.vtcd.provider.VTCDEditPlugin" editorPluginClass="biz.bi.vtcd.presentation.VTCDEditorPlugin"
+    updateClasspath="false" generateSchema="true" nonNLSMarkers="true" codeFormatting="true"
+    testsDirectory="/biz.bi.vtcd/src" testSuiteClass="biz.bi.vtcd.tests.VTCDAllTests">
+  <foreignModel>../../../biz.bi.vtcd_DEV/src/model/vtcd.ecore</foreignModel>
+  <genPackages prefix="VTCD" basePackage="biz.bi" disposableProviderFactory="true"
+      interfacePackageSuffix="model" classPackageSuffix="model.impl" utilityPackageSuffix="model.util"
+      ecorePackage="vtcd.ecore#/">
+    <genDataTypes ecoreDataType="vtcd.ecore#//TestObject"/>
+    <genDataTypes ecoreDataType="vtcd.ecore#//Dependency"/>
+    <genDataTypes ecoreDataType="vtcd.ecore#//Color"/>
+    <genDataTypes ecoreDataType="vtcd.ecore#//Element"/>
+    <genDataTypes ecoreDataType="vtcd.ecore#//Combination"/>
+    <genDataTypes ecoreDataType="vtcd.ecore#//EquivalenceClass"/>
+    <genDataTypes ecoreDataType="vtcd.ecore#//AbsoluteBendPoint"/>
+    <genClasses ecoreClass="vtcd.ecore#//VTCDDiagramCombination">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDDiagramCombination/m_VTCDFigureCombination"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDDiagramCombination/m_VTCDFigureElement"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDDiagramCombination/m_VTCDDiagramMain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDDiagramCombination/m_Dependency"/>
+    </genClasses>
+    <genClasses ecoreClass="vtcd.ecore#//VTCDDiagramMain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDDiagramMain/m_VTCDFigureElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDDiagramMain/m_VTCDFigureDependency"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDDiagramMain/m_VTCDDiagramCombination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDDiagramMain/m_TestObject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDDiagramMain/m_VTCDNote"/>
+    </genClasses>
+    <genClasses ecoreClass="vtcd.ecore#//VTCDFigureCombination">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDFigureCombination/m_VTCDDiagramCombination"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDFigureCombination/m_VTCDLinkCombinationEClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDFigureCombination/m_Combination"/>
+    </genClasses>
+    <genClasses ecoreClass="vtcd.ecore#//VTCDFigureElement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDFigureElement/m_VTCDDiagramCombination"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDFigureElement/m_VTCDDiagramMain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDFigureElement/m_VTCDFigureEquivalenceClass"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDFigureElement/m_VTCDLinkDependencyElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDFigureElement/m_Element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDFigureElement/icon"/>
+    </genClasses>
+    <genClasses ecoreClass="vtcd.ecore#//VTCDFigureDependency">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDFigureDependency/m_VTCDDiagramMain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDFigureDependency/icon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDFigureDependency/m_VTCDLinkDependencyElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDFigureDependency/m_Dependency"/>
+    </genClasses>
+    <genClasses ecoreClass="vtcd.ecore#//VTCDFigureEquivalenceClass">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDFigureEquivalenceClass/m_VTCDFigureElement"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDFigureEquivalenceClass/m_VTCDLinkCombinationEClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDFigureEquivalenceClass/m_EquivalenceClass"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="vtcd.ecore#//VTCDAbstractFigure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDAbstractFigure/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDAbstractFigure/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDAbstractFigure/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDAbstractFigure/y"/>
+    </genClasses>
+    <genClasses ecoreClass="vtcd.ecore#//VTCDLinkDependencyElement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDLinkDependencyElement/sourceDependency"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDLinkDependencyElement/destElement"/>
+    </genClasses>
+    <genClasses ecoreClass="vtcd.ecore#//VTCDLinkCombinationEClass">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDLinkCombinationEClass/sourceCombination"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference vtcd.ecore#//VTCDLinkCombinationEClass/destEquivalenceClass"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="vtcd.ecore#//VTCDAbstractLink">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDAbstractLink/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDAbstractLink/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDAbstractLink/bendPoints"/>
+    </genClasses>
+    <genClasses ecoreClass="vtcd.ecore#//VTCDNote">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute vtcd.ecore#//VTCDNote/text"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:CMKR="http://biz.bi.cmcore" targetNamespace="http://biz.bi.cmcore">
+  <xsd:import schemaLocation="XMI.xsd" namespace="http://www.omg.org/XMI"/>
+  <xsd:complexType name="CMProxyTestObject">
+    <xsd:complexContent>
+      <xsd:extension base="CMKR:CMProxyObject">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+          <xsd:element name="proxySTDCombination" type="CMKR:CMProxySTDCombination"/>
+          <xsd:element name="proxyTestCase" type="CMKR:CMProxyTestCase"/>
+        </xsd:choice>
+        <xsd:attribute name="m_path" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CMProxyTestObject" type="CMKR:CMProxyTestObject"/>
+  <xsd:complexType name="CMProxyElement">
+    <xsd:complexContent>
+      <xsd:extension base="CMKR:CMProxyObject">
+        <xsd:attribute name="uniqueId" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CMProxyElement" type="CMKR:CMProxyElement"/>
+  <xsd:complexType name="CMProxyObject">
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="CMProxyObject" type="CMKR:CMProxyObject"/>
+  <xsd:complexType name="CMProxyEquivalenceClass">
+    <xsd:complexContent>
+      <xsd:extension base="CMKR:CMProxyObject">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+          <xsd:element name="proxyEffect" type="CMKR:CMProxyEffect"/>
+        </xsd:choice>
+        <xsd:attribute name="uniqueId" type="xsd:string"/>
+        <xsd:attribute name="proxyEffect" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CMProxyEquivalenceClass" type="CMKR:CMProxyEquivalenceClass"/>
+  <xsd:complexType name="CMProxyEffect">
+    <xsd:complexContent>
+      <xsd:extension base="CMKR:CMProxyObject">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+          <xsd:element name="proxyEquivalenceClass" type="CMKR:CMProxyEquivalenceClass"/>
+          <xsd:element name="proxyCombination" type="CMKR:CMProxyCombination"/>
+        </xsd:choice>
+        <xsd:attribute name="uniqueId" type="xsd:string"/>
+        <xsd:attribute name="proxyEquivalenceClass" type="xsd:string"/>
+        <xsd:attribute name="proxyCombination" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CMProxyEffect" type="CMKR:CMProxyEffect"/>
+  <xsd:complexType name="CMProxyDependency">
+    <xsd:complexContent>
+      <xsd:extension base="CMKR:CMProxyObject">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+          <xsd:element name="proxyEquivalenceClass" type="CMKR:CMProxyEquivalenceClass"/>
+        </xsd:choice>
+        <xsd:attribute name="uniqueId" type="xsd:string"/>
+        <xsd:attribute name="proxyEquivalenceClass" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CMProxyDependency" type="CMKR:CMProxyDependency"/>
+  <xsd:complexType name="CMProxyCombination">
+    <xsd:complexContent>
+      <xsd:extension base="CMKR:CMProxyObject">
+        <xsd:attribute name="uniqueId" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CMProxyCombination" type="CMKR:CMProxyCombination"/>
+  <xsd:complexType name="CMProxyRiskObject">
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="CMProxyRiskObject" type="CMKR:CMProxyRiskObject"/>
+  <xsd:complexType name="CMProxyTestCase">
+    <xsd:complexContent>
+      <xsd:extension base="CMKR:CMProxyObject">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+          <xsd:element name="proxyTestObject" type="CMKR:CMProxyTestObject"/>
+          <xsd:element name="proxyCombination" type="CMKR:CMProxyCombination"/>
+          <xsd:element name="proxyEquivalenceClass" type="CMKR:CMProxyEquivalenceClass"/>
+        </xsd:choice>
+        <xsd:attribute name="uniqueId" type="xsd:string"/>
+        <xsd:attribute name="m_TestCase" type="xsd:string"/>
+        <xsd:attribute name="proxyTestObject" type="xsd:string"/>
+        <xsd:attribute name="proxyCombination" type="xsd:string"/>
+        <xsd:attribute name="proxyEquivalenceClass" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CMProxyTestCase" type="CMKR:CMProxyTestCase"/>
+  <xsd:complexType name="CMProxyGeneratedObject">
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="CMProxyGeneratedObject" type="CMKR:CMProxyGeneratedObject"/>
+  <xsd:complexType name="CMProxySTDCombination">
+    <xsd:complexContent>
+      <xsd:extension base="CMKR:CMProxyCombination">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+          <xsd:element name="proxyTestObject" type="CMKR:CMProxyTestObject"/>
+        </xsd:choice>
+        <xsd:attribute name="proxyTestObject" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CMProxySTDCombination" type="CMKR:CMProxySTDCombination"/>
+</xsd:schema>

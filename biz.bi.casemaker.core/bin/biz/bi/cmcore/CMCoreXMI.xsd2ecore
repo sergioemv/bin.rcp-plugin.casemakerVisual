@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="CasemakerCore.ecore#/"
+    outputs="CMCoreXMI.xsd#/">
+  <nested inputs="CasemakerCore.ecore#/" outputs="CMCoreXMI.xsd#/">
+    <nested inputs="CasemakerCore.ecore#//CMProxyTestObject" outputs="CMCoreXMI.xsd#//CMProxyTestObject;XSDComplexTypeDefinition">
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestObject/m_path" outputs="CMCoreXMI.xsd#//CMProxyTestObject;XSDComplexTypeDefinition/XSDAttributeUse"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestObject/proxySTDCombination"
+          outputs="CMCoreXMI.xsd#//CMProxyTestObject;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestObject/proxyTestCase" outputs="CMCoreXMI.xsd#//CMProxyTestObject;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="CasemakerCore.ecore#//CMProxyTestObject" outputs="CMCoreXMI.xsd#//CMProxyTestObject;XSDElementDeclaration"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyElement" outputs="CMCoreXMI.xsd#//CMProxyElement;XSDComplexTypeDefinition=1">
+      <nested inputs="CasemakerCore.ecore#//CMProxyElement/uniqueId" outputs="CMCoreXMI.xsd#//CMProxyElement;XSDComplexTypeDefinition=1/XSDAttributeUse"/>
+    </nested>
+    <nested inputs="CasemakerCore.ecore#//CMProxyElement" outputs="CMCoreXMI.xsd#//CMProxyElement;XSDElementDeclaration=1"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyObject" outputs="CMCoreXMI.xsd#//CMProxyObject;XSDComplexTypeDefinition=2"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyObject" outputs="CMCoreXMI.xsd#//CMProxyObject;XSDElementDeclaration=2"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyEquivalenceClass" outputs="CMCoreXMI.xsd#//CMProxyEquivalenceClass;XSDComplexTypeDefinition=3">
+      <nested inputs="CasemakerCore.ecore#//CMProxyEquivalenceClass/uniqueId" outputs="CMCoreXMI.xsd#//CMProxyEquivalenceClass;XSDComplexTypeDefinition=3/XSDAttributeUse"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyEquivalenceClass/proxyEffect" outputs="CMCoreXMI.xsd#//CMProxyEquivalenceClass;XSDComplexTypeDefinition=3/XSDAttributeUse=1"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyEquivalenceClass/proxyEffect" outputs="CMCoreXMI.xsd#//CMProxyEquivalenceClass;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle"/>
+    </nested>
+    <nested inputs="CasemakerCore.ecore#//CMProxyEquivalenceClass" outputs="CMCoreXMI.xsd#//CMProxyEquivalenceClass;XSDElementDeclaration=3"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyEffect" outputs="CMCoreXMI.xsd#//CMProxyEffect;XSDComplexTypeDefinition=4">
+      <nested inputs="CasemakerCore.ecore#//CMProxyEffect/uniqueId" outputs="CMCoreXMI.xsd#//CMProxyEffect;XSDComplexTypeDefinition=4/XSDAttributeUse"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyEffect/proxyEquivalenceClass" outputs="CMCoreXMI.xsd#//CMProxyEffect;XSDComplexTypeDefinition=4/XSDAttributeUse=1"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyEffect/proxyEquivalenceClass" outputs="CMCoreXMI.xsd#//CMProxyEffect;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyEffect/proxyCombination" outputs="CMCoreXMI.xsd#//CMProxyEffect;XSDComplexTypeDefinition=4/XSDAttributeUse=2"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyEffect/proxyCombination" outputs="CMCoreXMI.xsd#//CMProxyEffect;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="CasemakerCore.ecore#//CMProxyEffect" outputs="CMCoreXMI.xsd#//CMProxyEffect;XSDElementDeclaration=4"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyDependency" outputs="CMCoreXMI.xsd#//CMProxyDependency;XSDComplexTypeDefinition=5">
+      <nested inputs="CasemakerCore.ecore#//CMProxyDependency/uniqueId" outputs="CMCoreXMI.xsd#//CMProxyDependency;XSDComplexTypeDefinition=5/XSDAttributeUse"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyDependency/proxyEquivalenceClass"
+          outputs="CMCoreXMI.xsd#//CMProxyDependency;XSDComplexTypeDefinition=5/XSDAttributeUse=1"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyDependency/proxyEquivalenceClass"
+          outputs="CMCoreXMI.xsd#//CMProxyDependency;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle"/>
+    </nested>
+    <nested inputs="CasemakerCore.ecore#//CMProxyDependency" outputs="CMCoreXMI.xsd#//CMProxyDependency;XSDElementDeclaration=5"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyCombination" outputs="CMCoreXMI.xsd#//CMProxyCombination;XSDComplexTypeDefinition=6">
+      <nested inputs="CasemakerCore.ecore#//CMProxyCombination/uniqueId" outputs="CMCoreXMI.xsd#//CMProxyCombination;XSDComplexTypeDefinition=6/XSDAttributeUse"/>
+    </nested>
+    <nested inputs="CasemakerCore.ecore#//CMProxyCombination" outputs="CMCoreXMI.xsd#//CMProxyCombination;XSDElementDeclaration=6"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyRiskObject" outputs="CMCoreXMI.xsd#//CMProxyRiskObject;XSDComplexTypeDefinition=7"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyRiskObject" outputs="CMCoreXMI.xsd#//CMProxyRiskObject;XSDElementDeclaration=7"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyTestCase" outputs="CMCoreXMI.xsd#//CMProxyTestCase;XSDComplexTypeDefinition=8">
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestCase/uniqueId" outputs="CMCoreXMI.xsd#//CMProxyTestCase;XSDComplexTypeDefinition=8/XSDAttributeUse"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestCase/m_TestCase" outputs="CMCoreXMI.xsd#//CMProxyTestCase;XSDComplexTypeDefinition=8/XSDAttributeUse=1"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestCase/proxyTestObject" outputs="CMCoreXMI.xsd#//CMProxyTestCase;XSDComplexTypeDefinition=8/XSDAttributeUse=2"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestCase/proxyTestObject" outputs="CMCoreXMI.xsd#//CMProxyTestCase;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestCase/proxyCombination" outputs="CMCoreXMI.xsd#//CMProxyTestCase;XSDComplexTypeDefinition=8/XSDAttributeUse=3"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestCase/proxyCombination" outputs="CMCoreXMI.xsd#//CMProxyTestCase;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestCase/proxyEquivalenceClass"
+          outputs="CMCoreXMI.xsd#//CMProxyTestCase;XSDComplexTypeDefinition=8/XSDAttributeUse=4"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxyTestCase/proxyEquivalenceClass"
+          outputs="CMCoreXMI.xsd#//CMProxyTestCase;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=2"/>
+    </nested>
+    <nested inputs="CasemakerCore.ecore#//CMProxyTestCase" outputs="CMCoreXMI.xsd#//CMProxyTestCase;XSDElementDeclaration=8"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyGeneratedObject" outputs="CMCoreXMI.xsd#//CMProxyGeneratedObject;XSDComplexTypeDefinition=9"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxyGeneratedObject" outputs="CMCoreXMI.xsd#//CMProxyGeneratedObject;XSDElementDeclaration=9"/>
+    <nested inputs="CasemakerCore.ecore#//CMProxySTDCombination" outputs="CMCoreXMI.xsd#//CMProxySTDCombination;XSDComplexTypeDefinition=10">
+      <nested inputs="CasemakerCore.ecore#//CMProxySTDCombination/proxyTestObject"
+          outputs="CMCoreXMI.xsd#//CMProxySTDCombination;XSDComplexTypeDefinition=10/XSDAttributeUse"/>
+      <nested inputs="CasemakerCore.ecore#//CMProxySTDCombination/proxyTestObject"
+          outputs="CMCoreXMI.xsd#//CMProxySTDCombination;XSDComplexTypeDefinition=10/XSDParticle/XSDModelGroup/XSDParticle"/>
+    </nested>
+    <nested inputs="CasemakerCore.ecore#//CMProxySTDCombination" outputs="CMCoreXMI.xsd#//CMProxySTDCombination;XSDElementDeclaration=10"/>
+  </nested>
+</xsd2ecore:XSD2EcoreMappingRoot>

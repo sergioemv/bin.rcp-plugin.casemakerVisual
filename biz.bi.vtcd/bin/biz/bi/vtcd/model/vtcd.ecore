@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="vtcd"
+    nsURI="http://biz.bi.vtcd" nsPrefix="VTCD">
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDDiagramCombination" eSuperTypes="#//VTCDDiagram #//VTCDCMProxyFigure">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDFigureCombination"
+        upperBound="-1" eType="#//VTCDFigureCombination" containment="true" eOpposite="#//VTCDFigureCombination/m_VTCDDiagramCombination"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDFigureElement" upperBound="-1"
+        eType="#//VTCDFigureElement" containment="true" eOpposite="#//VTCDFigureElement/m_VTCDDiagramCombination"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_FigureDependency" lowerBound="1"
+        eType="#//VTCDFigureDependency" eOpposite="#//VTCDFigureDependency/m_VTCDDiagramCombination"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDDiagramMain" eSuperTypes="#//VTCDDiagram #//VTCDCMProxyFigure">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDFigureElement" upperBound="-1"
+        eType="#//VTCDFigureElement" containment="true" eOpposite="#//VTCDFigureElement/m_VTCDDiagramMain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDFigureDependency"
+        upperBound="-1" eType="#//VTCDFigureDependency" containment="true" eOpposite="#//VTCDFigureDependency/m_VTCDDiagramMain"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_TestObject" lowerBound="1"
+        eType="#//TestObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDFigureCombination" eSuperTypes="#//VTCDAbstractFigure #//VTCDCMProxyFigure">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDDiagramCombination"
+        lowerBound="1" eType="#//VTCDDiagramCombination" eOpposite="#//VTCDDiagramCombination/m_VTCDFigureCombination"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDLinkCombinationEClass"
+        upperBound="-1" eType="#//VTCDLinkCombinationEClass" containment="true" eOpposite="#//VTCDLinkCombinationEClass/sourceCombination"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_Combination" lowerBound="1"
+        eType="#//Combination"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDFigureElement" eSuperTypes="#//VTCDAbstractFigure #//VTCDCMProxyFigure">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDDiagramCombination"
+        lowerBound="1" eType="#//VTCDDiagramCombination" eOpposite="#//VTCDDiagramCombination/m_VTCDFigureElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDDiagramMain" lowerBound="1"
+        eType="#//VTCDDiagramMain" eOpposite="#//VTCDDiagramMain/m_VTCDFigureElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDFigureEquivalenceClass"
+        upperBound="-1" eType="#//VTCDFigureEquivalenceClass" containment="true" eOpposite="#//VTCDFigureEquivalenceClass/m_VTCDFigureElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDLinkDependencyElement"
+        upperBound="-1" eType="#//VTCDLinkDependencyElement" eOpposite="#//VTCDLinkDependencyElement/destElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_Element" lowerBound="1"
+        eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="folded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDFigureDependency" eSuperTypes="#//VTCDAbstractFigure #//VTCDCMProxyFigure">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDDiagramMain" lowerBound="1"
+        eType="#//VTCDDiagramMain" eOpposite="#//VTCDDiagramMain/m_VTCDFigureDependency"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDLinkDependencyElement"
+        upperBound="-1" eType="#//VTCDLinkDependencyElement" containment="true" eOpposite="#//VTCDLinkDependencyElement/sourceDependency"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_Dependency" lowerBound="1"
+        eType="#//Dependency"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDDiagramCombination"
+        lowerBound="1" eType="#//VTCDDiagramCombination" containment="true" eOpposite="#//VTCDDiagramCombination/m_FigureDependency"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDFigureEquivalenceClass" eSuperTypes="#//VTCDAbstractFigure #//VTCDCMProxyFigure">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDFigureElement" lowerBound="1"
+        eType="#//VTCDFigureElement" eOpposite="#//VTCDFigureElement/m_VTCDFigureEquivalenceClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDLinkCombinationEClass"
+        upperBound="-1" eType="#//VTCDLinkCombinationEClass" eOpposite="#//VTCDLinkCombinationEClass/destEquivalenceClass"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_EquivalenceClass" lowerBound="1"
+        eType="#//EquivalenceClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDAbstractFigure" abstract="true">
+    <eOperations name="getLinks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TestObject" instanceClassName="biz.bi.cmcore.model.CMProxyTestObject"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Dependency" instanceClassName="biz.bi.cmcore.model.CMProxyDependency"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDLinkDependencyElement" eSuperTypes="#//VTCDAbstractLink">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceDependency" lowerBound="1"
+        eType="#//VTCDFigureDependency" eOpposite="#//VTCDFigureDependency/m_VTCDLinkDependencyElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destElement" lowerBound="1"
+        eType="#//VTCDFigureElement" eOpposite="#//VTCDFigureElement/m_VTCDLinkDependencyElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDLinkCombinationEClass" eSuperTypes="#//VTCDAbstractLink">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCombination" lowerBound="1"
+        eType="#//VTCDFigureCombination" eOpposite="#//VTCDFigureCombination/m_VTCDLinkCombinationEClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destEquivalenceClass" lowerBound="1"
+        eType="#//VTCDFigureEquivalenceClass" eOpposite="#//VTCDFigureEquivalenceClass/m_VTCDLinkCombinationEClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDAbstractLink" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bendPoints" upperBound="-1"
+        eType="#//AbsoluteBendPoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceTerminal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTerminal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceClassName="org.eclipse.swt.graphics.Color"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Element" instanceClassName="biz.bi.cmcore.model.CMProxyElement"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Combination" instanceClassName="biz.bi.cmcore.model.CMProxyCombination"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="EquivalenceClass" instanceClassName="biz.bi.cmcore.model.CMProxyEquivalenceClass"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="AbsoluteBendPoint" instanceClassName="org.eclipse.draw2d.AbsoluteBendpoint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDNote" eSuperTypes="#//VTCDAbstractFigure">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDDiagram" lowerBound="1"
+        eType="#//VTCDDiagram" eOpposite="#//VTCDDiagram/m_VTCDNote"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDDiagram" interface="true">
+    <eOperations name="getChildren" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VTCDNote" upperBound="-1"
+        eType="#//VTCDNote" containment="true" eOpposite="#//VTCDNote/m_VTCDDiagram"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VTCDCMProxyFigure" interface="true">
+    <eOperations name="getProxyModel" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eOperations name="setProxyModel">
+      <eParameters name="model" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

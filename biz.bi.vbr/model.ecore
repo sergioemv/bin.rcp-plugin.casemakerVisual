@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ViewModel"
+    nsURI="http://model" nsPrefix="model">
+  <eClassifiers xsi:type="ecore:EClass" name="MainDiagram">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRTreeView" upperBound="-1"
+        eType="#//VBRTreeView" containment="true" resolveProxies="false" eOpposite="#//VBRTreeView/mainDiagram"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VBRTreeView">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainDiagram" lowerBound="1"
+        eType="#//MainDiagram" eOpposite="#//MainDiagram/m_VBRTreeView"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRElementView" upperBound="-1"
+        eType="#//VBRElementView" containment="true" eOpposite="#//VBRElementView/m_VBRTreeView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRRiskLevelView" upperBound="-1"
+        eType="#//VBRRiskLevelView" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRConnectTrEV" lowerBound="1"
+        eType="#//VBRConnectTrEV"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VBRElementView" eSuperTypes="#//AbstractView">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vBRConnectEEV" lowerBound="1"
+        eType="#//VBRConnectEEV"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRTreeView" lowerBound="1"
+        eType="#//VBRTreeView" eOpposite="#//VBRTreeView/m_VBRElementView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRelementValueView"
+        lowerBound="1" eType="#//VBRElementValueView" containment="true" eOpposite="#//VBRElementValueView/m_VBRElementView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VBRElementValueView" eSuperTypes="#//AbstractView">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_vBRConnectEVEV" lowerBound="1"
+        upperBound="-1" eType="#//VBRConnectEVEV" eOpposite="#//VBRConnectEVEV/vBRElementValueView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRConnectEVA" lowerBound="1"
+        upperBound="-1" eType="#//VBRConnectEVA"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRRiskLevelView" lowerBound="1"
+        eType="#//VBRRiskLevelView" eOpposite="#//VBRRiskLevelView/m_VBRElementValueView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRElementView" lowerBound="1"
+        eType="#//VBRElementView" eOpposite="#//VBRElementView/m_VBRelementValueView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VBRActionView" eSuperTypes="#//AbstractView">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CEIcon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VBRRiskLevelView" eSuperTypes="#//AbstractView">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRAction" upperBound="-1"
+        eType="#//VBRActionView" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRElementValueView"
+        upperBound="-1" eType="#//VBRElementValueView" containment="true" eOpposite="#//VBRElementValueView/m_VBRRiskLevelView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractView" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="X" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VBRConnectEEV">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Source" lowerBound="1"
+        eType="#//AbstractView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//AbstractView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRElementValueView"
+        lowerBound="1" eType="#//VBRElementValueView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VBRConnectEVEV">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vBRElementValueView" lowerBound="1"
+        eType="#//VBRElementView" eOpposite="#//VBRElementValueView/m_vBRConnectEVEV"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//AbstractView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//AbstractView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VBRConnectEVA">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//AbstractView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//AbstractView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="m_VBRActionView" lowerBound="1"
+        upperBound="-1" eType="#//VBRActionView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VBRConnectTrEV">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//AbstractView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//AbstractView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceClassName="org.eclipse.swt.graphics.Color"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Point" instanceClassName="org.eclipse.draw2d.geometry.Point"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Dimensions" instanceClassName="org.eclipse.draw2d.geometry.Dimension"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Image" instanceClassName="org.eclipse.swt.graphics.Image"/>
+</ecore:EPackage>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Business Innovations"
+    modelDirectory="/biz.bi.casemaker.core/src" editDirectory="/biz.bi.casemaker.core/src"
+    editorDirectory="/biz.bi.casemaker.core.editor/src" modelPluginID="biz.bi.casemaker.core"
+    runtimeJar="true" forceOverwrite="true" modelName="CMCore" modelPluginClass="biz.bi.cmcore.CMCoreModelPlugin"
+    editPluginClass="biz.bi.cmcore.provider.CMCoreEditPlugin" editorPluginClass="biz.bi.cmcore.presentation.CMCoreEditorPlugin"
+    updateClasspath="false" generateSchema="true" nonNLSMarkers="true" codeFormatting="true"
+    testsDirectory="/biz.bi.casemaker.core/src" testSuiteClass="biz.bi.cmcore.tests.CasemakerCoreAllTests">
+  <foreignModel>file:/D:/temp/Core/src/CasemakerCore.ecore</foreignModel>
+  <genPackages prefix="CMCore" basePackage="biz.bi" disposableProviderFactory="true"
+      interfacePackageSuffix="model" classPackageSuffix="model.impl" utilityPackageSuffix="model.util"
+      ecorePackage="CasemakerCore.ecore#/">
+    <genDataTypes ecoreDataType="CasemakerCore.ecore#//Element"/>
+    <genDataTypes ecoreDataType="CasemakerCore.ecore#//TestObject"/>
+    <genDataTypes ecoreDataType="CasemakerCore.ecore#//Dependency"/>
+    <genDataTypes ecoreDataType="CasemakerCore.ecore#//EquivalenceClass"/>
+    <genDataTypes ecoreDataType="CasemakerCore.ecore#//Combination"/>
+    <genDataTypes ecoreDataType="CasemakerCore.ecore#//Effect"/>
+    <genDataTypes ecoreDataType="CasemakerCore.ecore#//Structure"/>
+    <genDataTypes ecoreDataType="CasemakerCore.ecore#//TestCase"/>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxyTestObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyTestObject/m_TestObject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyTestObject/proxyElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyTestObject/proxyDependency"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyTestObject/proxyEffect"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyTestObject/m_path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyTestObject/proxySTDCombination"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyTestObject/proxyTestCase"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyTestObject/getStructure"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyTestObject/getState"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyTestObject/getUser"/>
+    </genClasses>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxyElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyElement/m_Element"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyElement/proxyTestObject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyElement/proxyEquivalenceClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyElement/uniqueId"/>
+    </genClasses>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxyObject">
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyObject/getId"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyObject/getName"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyObject/getDescription"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyObject/isProxyModelSet"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyObject/setDescription">
+        <genParameters ecoreParameter="CasemakerCore.ecore#//CMProxyObject/setDescription/p_Description"/>
+      </genOperations>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyObject/setName">
+        <genParameters ecoreParameter="CasemakerCore.ecore#//CMProxyObject/setName/p_Name"/>
+      </genOperations>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyObject/getCMModel"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyObject/setCMModel">
+        <genParameters ecoreParameter="CasemakerCore.ecore#//CMProxyObject/setCMModel/model"/>
+      </genOperations>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyObject/getTimeStamp"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyObject/setTimeStamp">
+        <genParameters ecoreParameter="CasemakerCore.ecore#//CMProxyObject/setTimeStamp/p_TimeStamp"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxyEquivalenceClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyEquivalenceClass/m_EquivalenceClass"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyEquivalenceClass/proxyElement"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyEquivalenceClass/proxyEffect"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyEquivalenceClass/uniqueId"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyEquivalenceClass/getStateName"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyEquivalenceClass/getValue"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyEquivalenceClass/setValue">
+        <genParameters ecoreParameter="CasemakerCore.ecore#//CMProxyEquivalenceClass/setValue/p_Value"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxyEffect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyEffect/m_Effect"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyEffect/proxyEquivalenceClass"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyEffect/proxyTestObject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyEffect/uniqueId"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyEffect/proxyCombination"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyEffect/isUsed"/>
+    </genClasses>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxyDependency">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyDependency/m_Dependency"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyDependency/proxyElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyDependency/proxyCombination"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyDependency/proxyTestObject"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyDependency/uniqueId"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyDependency/proxyEquivalenceClass"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyDependency/getLabel"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyDependency/setLabel">
+        <genParameters ecoreParameter="CasemakerCore.ecore#//CMProxyDependency/setLabel/p_Label"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxyCombination">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyCombination/m_Combination"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyCombination/proxyDependency"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyCombination/proxyEquivalenceClass"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyCombination/proxyEffect"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyCombination/uniqueId"/>
+    </genClasses>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxyRiskObject">
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyRiskObject/getRiskLevel"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyRiskObject/setRiskLevel">
+        <genParameters ecoreParameter="CasemakerCore.ecore#//CMProxyRiskObject/setRiskLevel/P_RiskLevel"/>
+      </genOperations>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyRiskObject/getState"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyRiskObject/setState">
+        <genParameters ecoreParameter="CasemakerCore.ecore#//CMProxyRiskObject/setState/p_State"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxyTestCase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyTestCase/uniqueId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CasemakerCore.ecore#//CMProxyTestCase/m_TestCase"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyTestCase/proxyTestObject"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyTestCase/proxyCombination"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxyTestCase/proxyEquivalenceClass"/>
+    </genClasses>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxyGeneratedObject">
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyGeneratedObject/getOriginType"/>
+      <genOperations ecoreOperation="CasemakerCore.ecore#//CMProxyGeneratedObject/setOriginType">
+        <genParameters ecoreParameter="CasemakerCore.ecore#//CMProxyGeneratedObject/setOriginType/p_OriginType"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="CasemakerCore.ecore#//CMProxySTDCombination">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CasemakerCore.ecore#//CMProxySTDCombination/proxyTestObject"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

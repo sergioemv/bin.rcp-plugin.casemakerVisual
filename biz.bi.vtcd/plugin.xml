@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+
+<plugin>
+
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://biz.bi.vtcd" 
+       class = "biz.bi.vtcd.provider.VTCDItemProviderAdapterFactory"
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+  
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http://biz.bi.vtcd"
+       class = "biz.bi.vtcd.model.VTCDPackage"
+       genModel = "src/biz/bi/vtcd/model/vtcd.genmodel" /> 
+  </extension>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "biz.bi.vtcd.wizards"
+      name="Visual Test Cases Design">
+    </category>
+    <wizard
+          category="biz.bi.vtcd.wizards"
+          class="biz.bi.vtcd.wizards.VTCDModelWizard"
+          descriptionImage="icons/cmicon.gif"
+          finalPerspective="biz.bi.vtcd.perspective"
+          icon="icons/wizard.gif"
+          id="biz.bi.vtcd.wizards.VTCDModelWizardID"
+          name="%_UI_VTCDModelWizard_label"
+          preferredPerspectives="biz.bi.vtcd.perspective">
+      <description>%_UI_VTCDModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+	<extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="biz.bi.vtcd.gef.editors.VTCDMainDiagramEditor"
+            contributorClass="biz.bi.vtcd.gef.editors.VTCDMainDiagramEditorActionBarContributor"
+            default="true"
+            extensions="vtcd"
+            icon="icons/EditorMain.gif"
+            id="biz.bi.vtcd.presentation.VTCDEditor"
+            name="VTCD Editor">
+      </editor>
+      <editor
+            class="biz.bi.vtcd.gef.editors.VTCDCombinationDiagramEditor"
+            contributorClass="biz.bi.vtcd.gef.editors.VTCDMainDiagramEditorActionBarContributor"
+            default="false"
+            icon="icons/EditorCombination.gif"
+            id="biz.bi.vtcd.presentation.VTCDCombinationDiagramEditor"
+            name="VTCD Combination Editor"/>
+   </extension>
+ <extension
+       point="org.eclipse.ui.views">
+    <category
+          id="biz.bi.vtcd"
+          name="VTCD"/>
+    <view
+          allowMultiple="false"
+          category="biz.bi.vtcd"
+          class="biz.bi.vtcd.views.VTCDCauseEffectView"
+          icon="icons/cause_efect.gif"
+          id="biz.bi.vtcd.views.VTCDCauseEffectView"
+          name="Cause Effects"/>
+    <view
+          allowMultiple="false"
+          category="biz.bi.vtcd"
+          class="biz.bi.vtcd.views.VTCDDiagramExplorerView"
+          icon="icons/diagramexplorer.gif"
+          id="biz.bi.vtcd.views.VTCDDiagramExplorerView"
+          name="Diagram Explorer"/>
+ </extension>
+ <extension
+       point="org.eclipse.ui.perspectiveExtensions">
+    <perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+       <view
+             id="biz.bi.vtcd.views.VTCDCauseEffectView"
+             ratio="0.5"
+             relationship="right"
+             relative="org.eclipse.ui.views.TaskList"
+             visible="true"/>
+    </perspectiveExtension>
+ </extension>
+ <extension
+       point="org.eclipse.ui.perspectives">
+    <perspective
+          class="biz.bi.vtcd.perspective.VTCDPerspectiveFactory"
+          icon="icons/cmicon.gif"
+          id="biz.bi.vtcd.perspective"
+          name="%_UI_Perspevite_PerspectiveName"/>
+ </extension>
+ 
+
+    
+ 
+    <extension point="org.eclipse.ui.importWizards">
+   <wizard
+       id="biz.bi.vtcd.wizards.VTCDImportWizard"
+       name="VTCD File"
+       class="biz.bi.vtcd.wizards.VTCDImportWizard"
+       icon="icons/wizard_import.gif">
+     <description>Import a VTCD File From a System Directory</description>
+     <selection class="org.eclipse.core.resources.IResource" /> 
+   </wizard>
+ </extension>
+
+<extension point="org.eclipse.ui.exportWizards">
+   <wizard
+       id="biz.bi.vtcd.wizards.VTCDExportWizard"
+       name="VTCD File"
+       class="biz.bi.vtcd.wizards.VTCDExportWizard"
+       icon="icons/wizard_export.gif">
+     <description>Export a VTCD File to System Directory</description>
+     <selection class="org.eclipse.core.resources.IResource" /> 
+   </wizard>
+ </extension>
+    
+</plugin>

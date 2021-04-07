@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Business Innovations"
+    modelDirectory="/biz.bi.vbr/src" editDirectory="/biz.bi.vbr/src" editorDirectory="/biz.bi.vbr/src"
+    modelPluginID="biz.bi.vbr" forceOverwrite="true" modelName="vbr" editPluginClass="biz.bi.vbr.provider.VBRModelEditPlugin"
+    editorPluginClass="biz.bi.vbr.presentation.VBRModelEditorPlugin" generateSchema="true"
+    nonNLSMarkers="true" codeFormatting="true" testsDirectory="/biz.bi.vbr/src" testSuiteClass="biz.bi.vbr.tests.VBRModelAllTests">
+  <foreignModel>BM.ecore</foreignModel>
+  <genPackages prefix="VBR" basePackage="biz.bi" disposableProviderFactory="true"
+      ecorePackage="BM.ecore#/">
+    <genClasses ecoreClass="BM.ecore#//BusinessObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//BusinessObject/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//BusinessObject/boName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//BusinessObject/boDescription"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//BusinessObject/m_BusinessValue"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//BusinessObject/m_FromalPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//BusinessObject/botimeStamp"/>
+    </genClasses>
+    <genClasses ecoreClass="BM.ecore#//BusinessValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//BusinessValue/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//BusinessValue/bvState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//BusinessValue/bvRisk"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//BusinessValue/m_BusinessObject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//BusinessValue/m_InferenceRule"/>
+    </genClasses>
+    <genClasses ecoreClass="BM.ecore#//BusinessAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//BusinessAction/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//BusinessAction/baDescription"/>
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//BusinessAction/m_besidebv"/>
+    </genClasses>
+    <genClasses ecoreClass="BM.ecore#//FormalPolicy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//FormalPolicy/fpDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//FormalPolicy/uniqueId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//FormalPolicy/m_BusinessObject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//FormalPolicy/m_BusinessAction"/>
+    </genClasses>
+    <genClasses ecoreClass="BM.ecore#//InferenceRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//InferenceRule/TruePart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//InferenceRule/FalsePart"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="BM.ecore#//AbstractInferenceRuleContents">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//AbstractInferenceRuleContents/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//AbstractInferenceRuleContents/timeStamp"/>
+    </genClasses>
+    <nestedGenPackages prefix="VBRVM" disposableProviderFactory="true" ecorePackage="BM.ecore#//vbrvm">
+      <genDataTypes ecoreDataType="BM.ecore#//vbrvm/Color"/>
+      <genDataTypes ecoreDataType="BM.ecore#//vbrvm/BMBusinessObject"/>
+      <genDataTypes ecoreDataType="BM.ecore#//vbrvm/BMBusinessValue"/>
+      <genDataTypes ecoreDataType="BM.ecore#//vbrvm/BMBusinessAction"/>
+      <genDataTypes ecoreDataType="BM.ecore#//vbrvm/BMFormalPolicy"/>
+      <genClasses ecoreClass="BM.ecore#//vbrvm/MainDiagram">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/MainDiagram/m_TreeView"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/MainDiagram/m_vbrObject"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/MainDiagram/m_VBRElementView"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/MainDiagram/m_VBRElementValueView"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/MainDiagram/m_VBRActionView"/>
+      </genClasses>
+      <genClasses ecoreClass="BM.ecore#//vbrvm/VBRTreeView">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRTreeView/mainDiagram"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/VBRTreeView/icon"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRTreeView/m_VBRTreeConnectElementValue"/>
+      </genClasses>
+      <genClasses ecoreClass="BM.ecore#//vbrvm/VBRElementView">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementView/m_MainDiagram"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/VBRElementView/m_BObjectM"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementView/m_VBRElementConnectElementValue"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="BM.ecore#//vbrvm/AbstractView">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/AbstractView/X"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/AbstractView/Y"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/AbstractView/Width"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/AbstractView/Heigth"/>
+      </genClasses>
+      <genClasses ecoreClass="BM.ecore#//vbrvm/VBRElementValueView">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementValueView/m_MainDiagram"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementValueView/m_VBRElementValueConnectAction"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/VBRElementValueView/eColor"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/VBRElementValueView/m_bvaluem"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementValueView/m_VBRElementValueConnectElementValue"/>
+      </genClasses>
+      <genClasses ecoreClass="BM.ecore#//vbrvm/VBRActionView">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/VBRActionView/color"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/VBRActionView/icon"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/VBRActionView/m_BActionm"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRActionView/m_VBRActionConnectElementValue"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRActionView/m_MainDiagram"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="BM.ecore#//vbrvm/AbstractLine">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/AbstractLine/x"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/AbstractLine/width"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BM.ecore#//vbrvm/AbstractLine/y"/>
+      </genClasses>
+      <genClasses ecoreClass="BM.ecore#//vbrvm/VBRElementConnectElementValue">
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementConnectElementValue/ESource"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementConnectElementValue/EVTarget"/>
+      </genClasses>
+      <genClasses ecoreClass="BM.ecore#//vbrvm/VBRElementValueConnectElementValue">
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementValueConnectElementValue/EVSource"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementValueConnectElementValue/EVTarget"/>
+      </genClasses>
+      <genClasses ecoreClass="BM.ecore#//vbrvm/VBRElementValueConnectAction">
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementValueConnectAction/SourceE"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRElementValueConnectAction/TargetACT"/>
+      </genClasses>
+      <genClasses ecoreClass="BM.ecore#//vbrvm/VBRActionConnectElementValue">
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRActionConnectElementValue/SourceACT"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRActionConnectElementValue/TargetEV"/>
+      </genClasses>
+      <genClasses ecoreClass="BM.ecore#//vbrvm/VBRTreeConnectElementValue">
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRTreeConnectElementValue/SourceTr"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference BM.ecore#//vbrvm/VBRTreeConnectElementValue/TargetEV"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

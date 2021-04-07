@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: biz.bi.vtcd; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: biz.bi.vtcd.jar,
+ runtime/
+Bundle-Activator: biz.bi.vtcd.provider.VTCDEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ biz.bi.casemaker.core,
+ org.junit;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.emf.edit.ui;visibility:=reexport,
+ org.eclipse.ui.ide;visibility:=reexport,
+ org.eclipse.draw2d;visibility:=reexport,
+ org.eclipse.gef;visibility:=reexport,
+ org.eclipse.ui
+Eclipse-AutoStart: true

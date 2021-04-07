@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="lib"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/sergi/.p2/pool/plugins/org.eclipse.emf.common_2.22.0.v20210114-1734.jar" sourcepath="C:/Users/sergi/.p2/pool/plugins/org.eclipse.emf.common.source_2.22.0.v20210114-1734.jar">
+		<accessrules>
+			<accessrule kind="accessible" pattern="org/eclipse/emf/common/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/emf/common/archive/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/emf/common/command/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/emf/common/notify/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/emf/common/notify/impl/*"/>
+			<accessrule kind="accessible" pattern="org/eclipse/emf/common/util/*"/>
+			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/casemaker.jar"/>
+	<classpathentry kind="lib" path="lib/JSX2.1.jar"/>
+	<classpathentry kind="lib" path="lib/JSX2.2.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/junit.jar"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

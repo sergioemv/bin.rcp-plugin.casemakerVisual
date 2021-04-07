@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id: plugin.xml,v 1.6 2005/09/09 18:33:52 hcanedo Exp $
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://biz.bi.vbr" 
+       class = "biz.bi.vbr.provider.VBRItemProviderAdapterFactory"
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+  
+  <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+    <factory 
+       uri = "http://biz.bi.vbr.vm" 
+       class = "biz.bi.vbr.vbrvm.provider.VBRVMItemProviderAdapterFactory"
+       supportedTypes = 
+         "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+          org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+          org.eclipse.emf.edit.provider.ITreeItemContentProvider
+          org.eclipse.emf.edit.provider.IItemLabelProvider
+          org.eclipse.emf.edit.provider.IItemPropertySource" />
+  </extension>
+  
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http://biz.bi.vbr"
+       class = "biz.bi.vbr.VBRPackage"
+       genModel = "" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package
+       uri = "http://biz.bi.vbr.vm"
+       class = "biz.bi.vbr.vbrvm.VBRVMPackage"
+       genModel = "" /> 
+  </extension>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "org.eclipse.emf.ecore.Wizard.category.ID"
+      name="%_UI_Wizard_category">
+    </category>
+    <wizard
+      id = "biz.bi.vbr.presentation.VBRModelWizardID"
+      name = "%_UI_VBRModelWizard_label"
+      class = "biz.bi.vbr.presentation.VBRModelWizard"
+      category = "org.eclipse.emf.ecore.Wizard.category.ID"
+      icon = "icons/full/obj16/VBRModelFile.gif">
+      <description>%_UI_VBRModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "org.eclipse.emf.ecore.Wizard.category.ID"
+      name="%_UI_Wizard_category">
+    </category>
+    <wizard
+      id = "biz.bi.vbr.vbrvm.presentation.VBRVMModelWizardID"
+      name = "%_UI_VBRVMModelWizard_label"
+      class = "biz.bi.vbr.vbrvm.presentation.VBRVMModelWizard"
+      category = "org.eclipse.emf.ecore.Wizard.category.ID"
+      icon = "icons/full/obj16/VBRVMModelFile.gif">
+      <description>%_UI_VBRVMModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+  <extension
+        point="org.eclipse.ui.editors">
+     <editor
+           class="biz.bi.vbr.gef.editors.VBRMainDiagramEditor"
+           contributorClass="biz.bi.vbr.gef.editors.VBRMainDiagramActionBarContributor"
+           default="true"
+           extensions="vbrvm"
+           icon="icons/full/wizban/NewVBRVM.gif"
+           id="biz.bi.vbr.gef.editors.VBRMainDiagramEditor"
+           name="biz.bi.vbr.gef.editors.VBRMainDiagramEditor"/>
+  </extension>    
+</plugin>

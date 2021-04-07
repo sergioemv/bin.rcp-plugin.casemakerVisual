@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cmcore"
+    nsURI="http://biz.bi.cmcore" nsPrefix="CMKR">
+  <eClassifiers xsi:type="ecore:EDataType" name="Element" instanceClassName="model.Element"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="TestObject" instanceClassName="model.TestObject"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxyTestObject" eSuperTypes="#//CMProxyObject">
+    <eOperations name="getStructure" eType="#//Structure"/>
+    <eOperations name="getState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getUser" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_TestObject" lowerBound="1"
+        eType="#//TestObject" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyElement" upperBound="-1"
+        eType="#//CMProxyElement" transient="true" containment="true" eOpposite="#//CMProxyElement/proxyTestObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyDependency" upperBound="-1"
+        eType="#//CMProxyDependency" transient="true" containment="true" eOpposite="#//CMProxyDependency/proxyTestObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyEffect" upperBound="-1"
+        eType="#//CMProxyEffect" transient="true" containment="true" eOpposite="#//CMProxyEffect/proxyTestObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxySTDCombination" upperBound="-1"
+        eType="#//CMProxySTDCombination" containment="true" eOpposite="#//CMProxySTDCombination/proxyTestObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyTestCase" upperBound="-1"
+        eType="#//CMProxyTestCase" containment="true" eOpposite="#//CMProxyTestCase/proxyTestObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Dependency" instanceClassName="model.Dependency"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="EquivalenceClass" instanceClassName="model.EquivalenceClass"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Combination" instanceClassName="model.Combination"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Effect" instanceClassName="model.Effect"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Structure" instanceClassName="model.Structure"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxyElement" eSuperTypes="#//CMProxyObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_Element" lowerBound="1"
+        eType="#//Element" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyTestObject" lowerBound="1"
+        eType="#//CMProxyTestObject" transient="true" eOpposite="#//CMProxyTestObject/proxyElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyEquivalenceClass"
+        upperBound="-1" eType="#//CMProxyEquivalenceClass" transient="true" containment="true"
+        eOpposite="#//CMProxyEquivalenceClass/proxyElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxyObject" interface="true">
+    <eOperations name="getId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="isProxyModelSet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="setDescription">
+      <eParameters name="p_Description" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="setName">
+      <eParameters name="p_Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getCMModel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eOperations name="setCMModel">
+      <eParameters name="model" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="getTimeStamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eOperations name="setTimeStamp">
+      <eParameters name="p_TimeStamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxyEquivalenceClass" eSuperTypes="#//CMProxyObject #//CMProxyRiskObject">
+    <eOperations name="getStateName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="setValue">
+      <eParameters name="p_Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_EquivalenceClass" lowerBound="1"
+        eType="#//EquivalenceClass" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyElement" lowerBound="1"
+        eType="#//CMProxyElement" transient="true" eOpposite="#//CMProxyElement/proxyEquivalenceClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyEffect" upperBound="-1"
+        eType="#//CMProxyEffect" eOpposite="#//CMProxyEffect/proxyEquivalenceClass"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxyEffect" eSuperTypes="#//CMProxyObject">
+    <eOperations name="isUsed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_Effect" lowerBound="1"
+        eType="#//Effect" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyEquivalenceClass"
+        upperBound="-1" eType="#//CMProxyEquivalenceClass" eOpposite="#//CMProxyEquivalenceClass/proxyEffect"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyTestObject" lowerBound="1"
+        eType="#//CMProxyTestObject" transient="true" eOpposite="#//CMProxyTestObject/proxyEffect"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyCombination" upperBound="-1"
+        eType="#//CMProxyCombination" eOpposite="#//CMProxyCombination/proxyEffect"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxyDependency" eSuperTypes="#//CMProxyObject">
+    <eOperations name="getLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="setLabel">
+      <eParameters name="p_Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_Dependency" lowerBound="1"
+        eType="#//Dependency" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyElement" upperBound="-1"
+        eType="#//CMProxyElement" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyCombination" upperBound="-1"
+        eType="#//CMProxyCombination" transient="true" containment="true" eOpposite="#//CMProxyCombination/proxyDependency"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyTestObject" lowerBound="1"
+        eType="#//CMProxyTestObject" transient="true" eOpposite="#//CMProxyTestObject/proxyDependency"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyEquivalenceClass"
+        upperBound="-1" eType="#//CMProxyEquivalenceClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxyCombination" eSuperTypes="#//CMProxyObject #//CMProxyRiskObject #//CMProxyGeneratedObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_Combination" lowerBound="1"
+        eType="#//Combination" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyDependency" lowerBound="1"
+        eType="#//CMProxyDependency" transient="true" eOpposite="#//CMProxyDependency/proxyCombination"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyEquivalenceClass"
+        upperBound="-1" eType="#//CMProxyEquivalenceClass" transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyEffect" upperBound="-1"
+        eType="#//CMProxyEffect" transient="true" eOpposite="#//CMProxyEffect/proxyCombination"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxyRiskObject" interface="true">
+    <eOperations name="getRiskLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="setRiskLevel">
+      <eParameters name="P_RiskLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getState" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="setState">
+      <eParameters name="p_State" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxyTestCase" eSuperTypes="#//CMProxyObject #//CMProxyRiskObject #//CMProxyGeneratedObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m_TestCase" eType="#//TestCase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyTestObject" eType="#//CMProxyTestObject"
+        eOpposite="#//CMProxyTestObject/proxyTestCase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyCombination" upperBound="-1"
+        eType="#//CMProxyCombination"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyEquivalenceClass"
+        upperBound="-1" eType="#//CMProxyEquivalenceClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="TestCase" instanceClassName="model.TestCase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxyGeneratedObject" interface="true">
+    <eOperations name="getOriginType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="setOriginType">
+      <eParameters name="p_OriginType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CMProxySTDCombination" eSuperTypes="#//CMProxyCombination">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proxyTestObject" eType="#//CMProxyTestObject"
+        eOpposite="#//CMProxyTestObject/proxySTDCombination"/>
+  </eClassifiers>
+</ecore:EPackage>
